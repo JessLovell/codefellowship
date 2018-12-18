@@ -40,9 +40,7 @@ public class ApplicationUserController {
 
         AppUserRepo.save(newUser);
 
-//        m.addAttribute("name", AppUserRepo.)
-
-        return new RedirectView("/users/");
+        return new RedirectView("/users/" + newUser.id);
     }
 
     @RequestMapping(value="/users/{id}", method=RequestMethod.GET)
