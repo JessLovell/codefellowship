@@ -1,7 +1,10 @@
 # Code Fellowship
-## Instructions
+An application where a community of coders can share computer programming tips, tools, projects, ideas, and collaborate with each other.
 
-### Running Locally
+## Packages and Products
+[Spring Initializr](https://start.spring.io/) with dependencies web, thymeleaf, devTools, postgreSQL, JPA, Security.
+
+## Instructions: Running Locally
 1. `git clone` this directory, `cd` into this directory.
 2. Create a postgres database named `codefellowship_app`
 3. In `application.properties` file, make sure you have the following lines of code:
@@ -12,9 +15,6 @@
 ```
 4. In the command line use `gradle bootrun` to start the application. Open a browser window to http://localhost:8080/ to see the application and to navigate to other pages.
 5. To terminate the application type `CRTL + C `in the command line.
-
-## Packages and Products
-[Spring Initializr](https://start.spring.io/) with dependencies web, thymeleaf, devTools, postgreSQL.
 
 ## The Challenge
 ### Day 1
