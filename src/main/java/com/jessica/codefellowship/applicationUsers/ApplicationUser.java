@@ -1,4 +1,4 @@
-package com.jessica.codefellowship;
+package com.jessica.codefellowship.applicationUsers;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

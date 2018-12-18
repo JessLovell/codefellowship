@@ -1,4 +1,4 @@
-package com.jessica.codefellowship;
+package com.jessica.codefellowship.applicationUsers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -40,10 +40,10 @@ public class ApplicationUserController {
 
         AppUserRepo.save(newUser);
 
-        return new RedirectView("/profile/" + newUser.id);
+        return new RedirectView("/users/" + newUser.id);
     }
 
-    @RequestMapping(value="/profile/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/users/{id}", method=RequestMethod.GET)
     public String show(@PathVariable long id, Model m) {
 
         m.addAttribute("user", AppUserRepo.findById(id).get());
