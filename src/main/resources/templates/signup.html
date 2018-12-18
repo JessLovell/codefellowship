@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Sign Up</title>
+    <div th:replace="~{common :: head}"></div>
+</head>
+    <body>
+    <h2>Create an account</h2>
+        <form action="/signup" method="POST">
+            First Name: <input type="text" name="firstName" /><br>
+            Last Name: <input type="text" name="lastName" /><br>
+            Date of Birth: <input type="text" name="dateOfBirth" /><br>
+            Bio: <input type="text" name="bio" /><br>
+            Username: <input type="text" name="username" /><br>
+            Password: <input name="password" type="password"/><br>
+            <input type="submit" />
+        </form>
+    </body>
+</html>
