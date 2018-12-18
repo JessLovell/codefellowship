@@ -10,13 +10,13 @@ public class ApplicationUser {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    protected long id;
-    protected String username;
-    protected String password;
-    protected String firstName;
-    protected String lastName;
-    protected String dateOfBirth;
-    protected String bio;
+    public long id;
+    public String username;
+    public String password;
+    public String firstName;
+    public String lastName;
+    public String dateOfBirth;
+    public String bio;
 
 
     public ApplicationUser() { }

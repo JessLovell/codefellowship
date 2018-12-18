@@ -34,16 +34,16 @@ public class ApplicationUserController {
     @RequestMapping(value="/signup", method= RequestMethod.POST)
     public RedirectView create(@RequestParam String username, @RequestParam String password,
                          @RequestParam String firstName, @RequestParam String lastName,
-                         @RequestParam String dateOfBirth, @RequestParam String bio, Model m) {
+                         @RequestParam String dateOfBirth, @RequestParam String bio) {
 
         ApplicationUser newUser = new ApplicationUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName, dateOfBirth, bio);
 
         AppUserRepo.save(newUser);
 
-        return new RedirectView("/users/" + newUser.id);
+        return new RedirectView("/profile/" + newUser.id);
     }
 
-    @RequestMapping(value="/users/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/profile/{id}", method=RequestMethod.GET)
     public String show(@PathVariable long id, Model m) {
 
         m.addAttribute("user", AppUserRepo.findById(id).get());
