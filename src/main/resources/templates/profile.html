@@ -14,22 +14,21 @@
     <h4>Birthday: <span th:text="${user.dateOfBirth}"></span></h4>
     <p th:text="${user.bio}"></p>
 
+    <div>
+        <h3>Create a Post</h3>
+        <form action="/post" method="POST">
+            <input type="test" placeholder="Write your thoughts here..." name="body" /><br />
+            <input type="submit" />
+        </form>
+    </div>
 
-    <!--<div>-->
-        <!--<h3>Your Posts</h3>-->
-        <!--<ul th:each="post : ${user.posts}">-->
-            <!--<li><p th:text="${post}"></p></li>-->
-
-        <!--</ul>-->
-    <!--</div>-->
+    <div>
+    <h3>Your Posts</h3>
+        <ul th:each="post : ${user.posts}">
+            <li><p th:text="${post}"></p></li>
+        </ul>
+    </div>
 </div>
 
-<!--<div>-->
-    <!--<h3>Create a Post</h3>-->
-    <!--<form th:action="/post" method="POST">-->
-    <!--<input type="test" name="body" /><br />-->
-    <!--<input type="submit" />-->
-    <!--</form>-->
-<!--</div>-->
 </body>
 </html>

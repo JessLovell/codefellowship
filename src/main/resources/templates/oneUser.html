@@ -13,5 +13,11 @@
             <h3 th:text="${user.username}"></h3>
             <p th:text="${user.bio}"></p>
         </div>
+
+        <h3>Posts by <span th:text="${user.firstName}" /></h3>
+        <ul th:each="post : ${user.posts}">
+            <li><p th:text="${post}"></p></li>
+        </ul>
+    
     </body>
 </html>
