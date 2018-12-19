@@ -31,6 +31,11 @@ public class ApplicationUserController {
     protected String dateOfBirth;
     protected String bio;
 
+    @RequestMapping(value="/login", method= RequestMethod.GET)
+    public String indexLogin() {
+        return "login";
+    }
+
     @RequestMapping(value="/signup", method= RequestMethod.GET)
     public String index() {
         return "signup";
@@ -41,10 +46,11 @@ public class ApplicationUserController {
                          @RequestParam String firstName, @RequestParam String lastName,
                          @RequestParam String dateOfBirth, @RequestParam String bio) {
 
+        //create and save new user to db
         ApplicationUser newUser = new ApplicationUser(username, bCryptPasswordEncoder.encode(password), firstName, lastName, dateOfBirth, bio);
-
         AppUserRepo.save(newUser);
 
+        //auto-login after creating an account
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
