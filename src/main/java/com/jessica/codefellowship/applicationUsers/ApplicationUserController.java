@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.security.Principal;
 import java.util.ArrayList;
 
 @Controller
@@ -61,6 +62,14 @@ public class ApplicationUserController {
     public String show(@PathVariable long id, Model m) {
 
         m.addAttribute("user", AppUserRepo.findById(id).get());
+        return "oneUser";
+    }
+
+    @RequestMapping(value="/myprofile")
+    public String myProfile(Principal p, Model m) {
+        m.addAttribute("user", ((UsernamePasswordAuthenticationToken) p).getPrincipal());
         return "profile";
     }
+
+
 }
