@@ -10,13 +10,21 @@
         <h2>Create an account</h2>
         <form action="/signup" method="POST">
             <div class="form-group">
-                First Name: <input type="text" name="firstName" required class="form-control" />
-                Last Name: <input type="text" name="lastName" required class="form-control" />
-                Date of Birth: <input type="date" name="dateOfBirth" required class="form-control" />
-                Bio: <input type="text" name="bio" required class="form-control" />
                 Username: <input type="text" name="username" required class="form-control" />
-                Password: <input name="password" type="password" required class="form-control" />
-                <input type="submit" class="form-control" />
+                Password: <input name="password" type="password" required class="form-control" /> <br>
+                <div class="form-row">
+                    <div class="col">
+                    First Name: <input type="text" name="firstName" required class="form-control" />
+                    </div>
+                    <div class="col">
+                    Last Name: <input type="text" name="lastName" required class="form-control" />
+                    </div>
+                    <div class="col">
+                    Date of Birth: <input type="date" name="dateOfBirth" required class="form-control" />
+                    </div>
+                </div>
+                Bio: <input type="text" name="bio" required class="form-control" />
+                <br><input type="submit" class="form-control btn btn-primary" />
             </div>
         </form>
     </div>
