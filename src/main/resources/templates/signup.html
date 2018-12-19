@@ -5,15 +5,28 @@
     <div th:replace="~{common :: head}"></div>
 </head>
     <body>
-    <h2>Create an account</h2>
+    <div class="container">
+        <div th:replace="~{common :: navigation}"></div>
+        <h2>Create an account</h2>
         <form action="/signup" method="POST">
-            First Name: <input type="text" name="firstName" /><br>
-            Last Name: <input type="text" name="lastName" /><br>
-            Date of Birth: <input type="text" name="dateOfBirth" /><br>
-            Bio: <input type="text" name="bio" /><br>
-            Username: <input type="text" name="username" /><br>
-            Password: <input name="password" type="password"/><br>
-            <input type="submit" />
+            <div class="form-group">
+                Username: <input type="text" name="username" required class="form-control" />
+                Password: <input name="password" type="password" required class="form-control" /> <br>
+                <div class="form-row">
+                    <div class="col">
+                    First Name: <input type="text" name="firstName" required class="form-control" />
+                    </div>
+                    <div class="col">
+                    Last Name: <input type="text" name="lastName" required class="form-control" />
+                    </div>
+                    <div class="col">
+                    Date of Birth: <input type="date" name="dateOfBirth" required class="form-control" />
+                    </div>
+                </div>
+                Bio: <input type="text" name="bio" required class="form-control" />
+                <br><input type="submit" class="form-control btn btn-primary" />
+            </div>
         </form>
+    </div>
     </body>
 </html>

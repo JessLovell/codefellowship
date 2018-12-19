@@ -6,26 +6,10 @@
 </head>
 <body>
 <h1>You done messed up</h1>
-
-    <tr>
-        <td>Date</td>
-        <td th:text="${timestamp}"/>
-    </tr>
-    <tr>
-        <td>Path</td>
-        <td th:text="${path}"/>
-    </tr>
-    <tr>
-        <td>Error</td>
-        <td th:text="${error}"/>
-    </tr>
-    <tr>
-        <td>Status</td>
-        <td th:text="${status}"/>
-    </tr>
-    <tr>
-        <td>Message</td>
-        <td th:text="${message}"/>
-    </tr>
+    Date: <span th:text="${timestamp}"/> <br>
+    Path: <span th:text="${path}"/> <br>
+    Error: <span th:text="${error}"/> <br>
+    Status: <span th:text="${status}"/> <br>
+    Message: <span th:text="${message}"/>
 </body>
 </html>
