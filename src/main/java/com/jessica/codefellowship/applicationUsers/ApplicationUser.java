@@ -1,11 +1,13 @@
 package com.jessica.codefellowship.applicationUsers;
 
+import com.jessica.codefellowship.posts.Post;
 import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -22,6 +24,8 @@ public class ApplicationUser implements UserDetails {
     public String dateOfBirth;
     public String bio;
 
+    @OneToMany(mappedBy="appUser")
+    public List<Post> posts;
 
     public ApplicationUser() { }
 
