@@ -61,13 +61,16 @@ public class ApplicationUserController {
     @RequestMapping(value="/users/{id}", method=RequestMethod.GET)
     public String show(@PathVariable long id, Model m) {
 
+        //ERROR HANDLING HERE verify that there is something to get
         m.addAttribute("user", AppUserRepo.findById(id).get());
-        return "oneUser";
+        m.addAttribute("myProfile", false);
+        return "profile";
     }
 
     @RequestMapping(value="/myprofile")
     public String myProfile(Principal p, Model m) {
         m.addAttribute("user", ((UsernamePasswordAuthenticationToken) p).getPrincipal());
+        m.addAttribute("myProfile", true);
         return "profile";
     }
 

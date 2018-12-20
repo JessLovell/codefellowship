@@ -14,16 +14,17 @@
     <h4>Birthday: <span th:text="${user.dateOfBirth}"></span></h4>
     <p th:text="${user.bio}"></p>
 
-    <div>
+    <div th:if="${myProfile}">
         <h3>Create a Post</h3>
         <form action="/post" method="POST">
+
             <input type="test" placeholder="Write your thoughts here..." name="body" /><br />
             <input type="submit" />
         </form>
     </div>
 
     <div>
-    <h3>Your Posts</h3>
+    <h3>Posts by <span th:text="${user.username}"></span></h3>
         <ul th:each="post : ${user.posts}">
             <li><p th:text="${post}"></p></li>
         </ul>
