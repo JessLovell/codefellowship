@@ -18,8 +18,8 @@ public class PostController {
     @Autowired
     PostRepository postRepo;
 
-    @Autowired
-    ApplicationUser appUserRepo;
+//    @Autowired
+//    ApplicationUser appUserRepo;
 
     @RequestMapping(value="/post", method=RequestMethod.POST)
     public RedirectView create(@RequestParam String body, Principal p) {
@@ -27,7 +27,6 @@ public class PostController {
         ApplicationUser user = (ApplicationUser) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
         //create a post & save it
         Post newPost = new Post(body, new Date());
-        newPost.appUser = appUserRepo;
         postRepo.save(newPost);
 
         //redirect to myprofile
