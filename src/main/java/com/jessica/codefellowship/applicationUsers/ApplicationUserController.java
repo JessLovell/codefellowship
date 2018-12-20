@@ -24,7 +24,8 @@ public class ApplicationUserController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @RequestMapping(value="/login", method= RequestMethod.GET)
-    public String indexLogin() {
+    public String indexLogin(Model m) {
+        m.addAttribute("loginError", false);
         return "login";
     }
 
@@ -70,5 +71,10 @@ public class ApplicationUserController {
         return "profile";
     }
 
-
+    // Login form with error
+    @RequestMapping("/login-error")
+    public String loginError(Model m) {
+        m.addAttribute("loginError", true);
+        return "login";
+    }
 }
