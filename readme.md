@@ -46,3 +46,4 @@ An application where a community of coders can share computer programming tips, 
     * note: this will require a self-join on ApplicationUsers.
 5. A user can visit a url (like /feed) to view all of the posts from the users that they follow.
 6. Each post should have a link to the user profile of the user who wrote the post.
+7. **Stretch Goals:** When users create posts, allow them to specify whether or not a post is “public”. Public posts show up in everyone’s feeds. Add the ability for users to comment on posts.

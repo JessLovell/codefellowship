@@ -1,6 +1,7 @@
 package com.jessica.codefellowship.posts;
 
 import com.jessica.codefellowship.applicationUsers.ApplicationUser;
+import com.jessica.codefellowship.applicationUsers.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
@@ -18,15 +19,17 @@ public class PostController {
     @Autowired
     PostRepository postRepo;
 
-//    @Autowired
-//    ApplicationUser appUserRepo;
+    @Autowired
+    ApplicationUserRepository appUserRepo;
 
     @RequestMapping(value="/post", method=RequestMethod.POST)
     public RedirectView create(@RequestParam String body, Principal p) {
 
         ApplicationUser user = (ApplicationUser) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
+
         //create a post & save it
         Post newPost = new Post(body, new Date());
+        newPost.appUser = appUserRepo.findById(user.id).get();
         postRepo.save(newPost);
 
         //redirect to myprofile

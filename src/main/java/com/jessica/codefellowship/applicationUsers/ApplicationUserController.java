@@ -62,7 +62,10 @@ public class ApplicationUserController {
 
     @RequestMapping(value="/myprofile")
     public String myProfile(Principal p, Model m) {
-        m.addAttribute("user", ((UsernamePasswordAuthenticationToken) p).getPrincipal());
+
+        ApplicationUser user = (ApplicationUser) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
+
+        m.addAttribute("user", AppUserRepo.findById(user.id).get());
         m.addAttribute("myProfile", true);
         return "profile";
     }
