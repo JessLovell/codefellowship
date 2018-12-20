@@ -1,8 +1,6 @@
 package com.jessica.codefellowship.posts;
 
 import com.jessica.codefellowship.applicationUsers.ApplicationUser;
-import javafx.application.Application;
-
 import javax.persistence.*;
 import java.util.Date;
 
