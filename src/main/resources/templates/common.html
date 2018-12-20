@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
     <body>
+
         <div th:fragment="head">
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <link th:href="@{/style.css}"href="/style.css" rel="stylesheet" />
@@ -14,11 +16,13 @@
                 <h1>Code Fellowship</h1>
                 <ul>
                     <li><a href="/" >Home</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+                    <li><a href="/login">Login</a></li>
                     <li><a href="/perform_logout" >Logout</a></li>
                 </ul>
+
             </nav>
         </div>
-
 
     </body>
 </html>

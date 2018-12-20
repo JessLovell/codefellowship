@@ -1,7 +1,6 @@
 package com.jessica.codefellowship.applicationUsers;
 
 import com.jessica.codefellowship.posts.Post;
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

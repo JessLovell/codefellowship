@@ -1,6 +1,5 @@
 package com.jessica.codefellowship.applicationUsers;
 
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.security.Principal;
 import java.util.ArrayList;
 
@@ -25,15 +23,9 @@ public class ApplicationUserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    protected String username;
-    protected String password;
-    protected String firstName;
-    protected String lastName;
-    protected String dateOfBirth;
-    protected String bio;
-
     @RequestMapping(value="/login", method= RequestMethod.GET)
-    public String indexLogin() {
+    public String indexLogin(Model m) {
+        m.addAttribute("loginError", false);
         return "login";
     }
 
@@ -61,15 +53,28 @@ public class ApplicationUserController {
     @RequestMapping(value="/users/{id}", method=RequestMethod.GET)
     public String show(@PathVariable long id, Model m) {
 
+        //ERROR HANDLING HERE verify that there is something to get
+
+
         m.addAttribute("user", AppUserRepo.findById(id).get());
-        return "oneUser";
+        m.addAttribute("myProfile", false);
+        return "profile";
     }
 
     @RequestMapping(value="/myprofile")
     public String myProfile(Principal p, Model m) {
-        m.addAttribute("user", ((UsernamePasswordAuthenticationToken) p).getPrincipal());
+
+        ApplicationUser user = (ApplicationUser) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
+
+        m.addAttribute("user", AppUserRepo.findById(user.id).get());
+        m.addAttribute("myProfile", true);
         return "profile";
     }
 
-
+    // Login form with error
+    @RequestMapping("/login-error")
+    public String loginError(Model m) {
+        m.addAttribute("loginError", true);
+        return "login";
+    }
 }
