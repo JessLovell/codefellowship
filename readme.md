@@ -5,6 +5,9 @@ An application where a community of coders can share computer programming tips, 
 * [Spring Initializr](https://start.spring.io/) with dependencies web, thymeleaf, devTools, postgreSQL, JPA, Security.
 * [Spring Auth Cheat Sheet](https://github.com/codefellows/seattle-java-401d2/blob/master/SpringAuthCheatSheet.md)
 
+## Instructions: Deployed Site
+Visit [this link](https://afternoon-brook-28815.herokuapp.com/) to play around with. 
+
 ## Instructions: Running Locally
 1. `git clone` this directory, `cd` into this directory.
 2. Create a postgres database named `codefellowship_app`
