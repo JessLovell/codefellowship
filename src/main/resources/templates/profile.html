@@ -23,7 +23,7 @@
         </form>
     </div>
 
-    <div>
+    <div th:if="${!myProfile}">
     <h3>Posts by <span th:text="${user.username}"></span></h3>
         <ul th:each="post : ${user.posts}">
             <li><p th:text="${post}"></p></li>

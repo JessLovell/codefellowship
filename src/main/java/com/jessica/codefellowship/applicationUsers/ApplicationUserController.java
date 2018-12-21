@@ -20,19 +20,28 @@ public class ApplicationUserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    //direct to the login page
     @RequestMapping(value="/login", method= RequestMethod.GET)
-    @ResponseBody
-    public String indexLogin(Model m) {
-        m.addAttribute("loginError", false);
+//    @ResponseBody //for testing
+    public String indexLogin() {
         return "login";
     }
 
+    // Login form with error
+    @RequestMapping("/login-error")
+    public String loginError(Model m) {
+        m.addAttribute("loginError", true);
+        return "login";
+    }
+
+    //direct to the signup page
     @RequestMapping(value="/signup", method= RequestMethod.GET)
-    @ResponseBody
+//    @ResponseBody  //for testing
     public String index() {
         return "signup";
     }
 
+    //creating a new user and saving to the db
     @RequestMapping(value="/signup", method= RequestMethod.POST)
     public RedirectView create(@RequestParam String username, @RequestParam String password,
                          @RequestParam String firstName, @RequestParam String lastName,
@@ -49,6 +58,7 @@ public class ApplicationUserController {
         return new RedirectView("/users/" + newUser.id);
     }
 
+    //Display any users' profile
     @RequestMapping(value="/users/{id}", method=RequestMethod.GET)
     public String show(@PathVariable long id, Model m) {
 
@@ -60,6 +70,7 @@ public class ApplicationUserController {
         return "profile";
     }
 
+    //display the logged in user's profile
     @RequestMapping(value="/myprofile")
     public String myProfile(Principal p, Model m) {
 
@@ -70,10 +81,8 @@ public class ApplicationUserController {
         return "profile";
     }
 
-    // Login form with error
-    @RequestMapping("/login-error")
-    public String loginError(Model m) {
-        m.addAttribute("loginError", true);
-        return "login";
-    }
+    //Method to display all users
+
+
+
 }
