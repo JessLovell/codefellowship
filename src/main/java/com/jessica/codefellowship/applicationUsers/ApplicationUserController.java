@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 public class ApplicationUserController {
@@ -83,6 +84,23 @@ public class ApplicationUserController {
 
     //Method to display all users
 
+
+    //To follow a user
+    @RequestMapping(value="/users/{id}/follow")
+    public RedirectView followAUser(@PathVariable long id, Principal p){
+
+        //find the followUser (id) that I am following
+        ApplicationUser user = (ApplicationUser) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
+
+        //add follower (principal) to followers (add me to their followers)
+        Optional<ApplicationUser> follower = AppUserRepo.findById(id);
+        Optional<ApplicationUser> following = AppUserRepo.findById(user.id);
+
+        ApplicationUser followerUser = follower.get();
+        followerUser.following.add(following.get());
+        AppUserRepo.save(followerUser);
+        return new RedirectView("/users/" + id);
+    }
 
 
 }

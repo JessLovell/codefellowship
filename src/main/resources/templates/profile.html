@@ -14,6 +14,12 @@
     <h4>Birthday: <span th:text="${user.dateOfBirth}"></span></h4>
     <p th:text="${user.bio}"></p>
 
+    <div th:if="${!myProfile}">
+        <form th:action="${'/users/'+ user.id + '/follow'}" method="post">
+            <button>Follow</button>
+        </form>
+    </div>
+
     <div th:if="${myProfile}">
         <h3>Create a Post</h3>
         <form action="/post" method="POST">
