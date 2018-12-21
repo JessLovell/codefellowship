@@ -6,10 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
 import java.util.ArrayList;
@@ -24,12 +21,14 @@ public class ApplicationUserController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @RequestMapping(value="/login", method= RequestMethod.GET)
+    @ResponseBody
     public String indexLogin(Model m) {
         m.addAttribute("loginError", false);
         return "login";
     }
 
     @RequestMapping(value="/signup", method= RequestMethod.GET)
+    @ResponseBody
     public String index() {
         return "signup";
     }
