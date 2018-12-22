@@ -61,13 +61,15 @@ public class ApplicationUserController {
 
     //Display any users' profile
     @RequestMapping(value="/users/{id}", method=RequestMethod.GET)
-    public String show(@PathVariable long id, Model m) {
+    public String show(@PathVariable long id, Model m, Principal p) {
 
         //ERROR HANDLING HERE verify that there is something to get
 
+        ApplicationUser user = (ApplicationUser) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
 
         m.addAttribute("user", AppUserRepo.findById(id).get());
         m.addAttribute("myProfile", false);
+        m.addAttribute("userId", user.id);
         return "profile";
     }
 
@@ -79,6 +81,7 @@ public class ApplicationUserController {
 
         m.addAttribute("user", AppUserRepo.findById(user.id).get());
         m.addAttribute("myProfile", true);
+        m.addAttribute("userId", user.id);
         return "profile";
     }
 
@@ -96,8 +99,8 @@ public class ApplicationUserController {
         Optional<ApplicationUser> follower = AppUserRepo.findById(id);
         Optional<ApplicationUser> following = AppUserRepo.findById(user.id);
 
-        ApplicationUser followerUser = follower.get();
-        followerUser.following.add(following.get());
+        ApplicationUser followerUser = following.get();
+        followerUser.following.add(follower.get());
         AppUserRepo.save(followerUser);
         return new RedirectView("/users/" + id);
     }
