@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <div th:replace="~{common :: navigation}"></div>
+    <div th:replace="~{common :: navigation(${user})}"></div>
     <h2>Login to your account</h2>
     <p th:if="${loginError}" class="error">Wrong user or password</p>
     <form action="/perform_login" method="POST">
