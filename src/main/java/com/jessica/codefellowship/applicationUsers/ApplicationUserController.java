@@ -86,6 +86,12 @@ public class ApplicationUserController {
     }
 
     //Method to display all users
+    @RequestMapping(value="/users", method=RequestMethod.GET)
+    public String getUsers(Model m){
+
+        m.addAttribute("users", AppUserRepo.findAll());
+        return "users";
+    }
 
 
     //To follow a user
