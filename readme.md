@@ -24,7 +24,7 @@ Visit [this link](https://afternoon-brook-28815.herokuapp.com/) to play around w
 To test the routes on `/login` and `/signup`:
 1. Go to `ApplicationController`
 2. For routes `/login (method=GET)` and `/signup (method=GET)`, uncomment `@RequestBody` above the method declaration.
-3. Run the test in IntelliJ on the file `CodefllowshipApplictionTests`. All should go smoothly. 
+3. Run the test in IntelliJ on the file `CodefllowshipApplictionTests`. All should go smoothly.
 
 ## The Challenge
 ### Day 1
