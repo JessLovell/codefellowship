@@ -20,6 +20,12 @@ Visit [this link](https://afternoon-brook-28815.herokuapp.com/) to play around w
 4. In the command line use `gradle bootrun` to start the application. Open a browser window to http://localhost:8080/ to see the application and to navigate to other pages.
 5. To terminate the application type `CRTL + C `in the command line.
 
+### Testing Locally
+To test the routes on `/login` and `/signup`:
+1. Go to `ApplicationController`
+2. For routes `/login (method=GET)` and `/signup (method=GET)`, uncomment `@RequestBody` above the method declaration.
+3. Run the test in IntelliJ on the file `CodefllowshipApplictionTests`. All should go smoothly. 
+
 ## The Challenge
 ### Day 1
 1. The site should have a splash page at the root route (/) that contains basic information about the site, as well as a link to the “sign up” page.
