@@ -112,9 +112,12 @@ public class ApplicationUserController {
     }
 
     //To view a user's feed of posts
-    @RequestMapping(value="/", method=RequestMethod.GET)
-    public String allPosts() {
-        return "index";
+    @RequestMapping(value="/feed", method=RequestMethod.GET)
+    public String allPosts(Model m, Principal p) {
+
+        ApplicationUser user = (ApplicationUser) ((UsernamePasswordAuthenticationToken) p).getPrincipal();
+        m.addAttribute("user", AppUserRepo.findById(user.id).get());
+        return "feed";
     }
 
 
