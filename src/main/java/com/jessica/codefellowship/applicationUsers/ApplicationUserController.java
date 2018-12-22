@@ -111,5 +111,11 @@ public class ApplicationUserController {
         return new RedirectView("/users/" + id);
     }
 
+    //To view a user's feed of posts
+    @RequestMapping(value="/", method=RequestMethod.GET)
+    public String allPosts() {
+        return "index";
+    }
+
 
 }

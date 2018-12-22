@@ -35,6 +35,17 @@
             <li><p th:text="${post}"></p></li>
         </ul>
     </div>
+
+    <div>
+        <h3>Feed</h3>
+        <div th:each="following : ${user.following}">
+            <div th:each="post : ${following.posts}">
+                <h4 th:text="${post.appUser.username}"></h4>
+                <p th:text="${post.body}"></p>
+                <p th:text="${post.createdAt}"></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
