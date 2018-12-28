@@ -81,7 +81,6 @@ public class ApplicationUserController {
         m.addAttribute("user", AppUserRepo.findById(id).get());
         m.addAttribute("myProfile", false);
         m.addAttribute("userId", user.id);
-        m.addAttribute("user", user.username);
         return "profile";
     }
 
