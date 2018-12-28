@@ -21,6 +21,14 @@ public class ApplicationUserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    //direct to the splash page
+    @RequestMapping(value="/", method= RequestMethod.GET)
+//    @ResponseBody //for testing
+    public String indexHome(Model m) {
+        m.addAttribute("user", false);
+        return "index";
+    }
+
     //direct to the login page
     @RequestMapping(value="/login", method= RequestMethod.GET)
 //    @ResponseBody //for testing

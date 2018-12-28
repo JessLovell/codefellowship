@@ -10,11 +10,11 @@
 <div th:replace="~{common :: navigation(${user})}"></div>
     <h1>All Fellows</h1>
     <div class="container">
-        <div th:each="aUser : ${allUsers}" >
+        <div th:each="one : ${allUsers}" >
             <div>
                 <img src="http://placehold.it/100">
-                <a th:href="${'/users/' + aUser.id}"><h3 th:text="${aUser.username}"></h3></a>
-                <p th:text="${aUser.bio}"></p>
+                <a th:href="${'/users/' + one.id}"><h3 th:text="${one.username}"></h3></a>
+                <p th:text="${one.bio}"></p>
             </div>
 
         </div>

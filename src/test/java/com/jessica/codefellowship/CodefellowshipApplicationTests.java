@@ -29,11 +29,19 @@ public class CodefellowshipApplicationTests {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
+	//Test for splash route
+	@Test
+	public void testSplah() throws Exception {
+		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/", String.class)).contains("index");
+	}
+
+	//Test for the Login route
 	@Test
 	public void testLogin() throws Exception {
 		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/login", String.class)).contains("login");
 	}
 
+	//Test for the signup route
 	@Test
 	public void testSignup() throws Exception {
 		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/signup", String.class)).contains("signup");
